@@ -7,18 +7,35 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>Notes</h1>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">Notes</div>
+        <div class="actions">
+          <input id="search" placeholder="Search notes..." aria-label="Search notes" />
+          <div id="count" class="count">0</div>
+        </div>
+      </header>
 
-      <form id="note-form">
-        <input id="note-title" placeholder="Title" required />
-        <textarea id="note-content" placeholder="Content"></textarea>
-        <input type="hidden" id="note-id" />
-        <button type="submit" id="submit-btn">Add Note</button>
-        <button type="button" id="cancel-btn" class="hidden">Cancel</button>
-      </form>
+      <main class="container">
+        <section class="editor card">
+          <form id="note-form">
+            <div class="row">
+              <input id="note-title" placeholder="Title" required />
+              <button type="submit" id="submit-btn">Add Note</button>
+            </div>
+            <textarea id="note-content" placeholder="Write your note..." rows="3"></textarea>
+            <input type="hidden" id="note-id" />
+            <div class="form-actions">
+              <button type="button" id="cancel-btn" class="hidden">Cancel</button>
+            </div>
+          </form>
+        </section>
 
-      <ul id="notes-list"></ul>
+        <section id="notes-wrap">
+          <ul id="notes-list" class="notes-grid"></ul>
+          <div id="empty" class="empty">No notes yet — add your first note.</div>
+        </section>
+      </main>
     </div>
 
     <script src="main.js"></script>

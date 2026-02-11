@@ -17,7 +17,7 @@ app.get('/api/notes', (req, res) => {
 app.post('/api/notes', (req, res) => {
   const { title, content } = req.body;
   if (!title) return res.status(400).json({ error: 'Title required' });
-  const note = { id: nextId++, title, content: content || '' };
+  const note = { id: nextId++, title, content: content || '', createdAt: new Date().toISOString() };
   notes.unshift(note);
   res.status(201).json(note);
 });
